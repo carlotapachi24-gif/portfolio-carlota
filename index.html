@@ -1,323 +1,237 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carlota López Carracedo | Diseñadora Gráfica & Creadora de Contenido</title>
-    <meta name="description" content="Portfolio de Carlota López Carracedo - Diseño gráfico, branding y producción audiovisual.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="#inicio" class="nav-logo">CL</a>
-            <ul class="nav-menu">
-                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-                <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
-                <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfolio profesional de Carlota López Carracedo — branding, diseño digital y producción audiovisual." />
+  <title>Carlota López Carracedo — Portfolio</title>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <p class="hero-label reveal-text">Diseñadora Gráfica & Creadora de Contenido</p>
-            <h1 class="hero-title">
-                <span class="reveal-text">Carlota</span>
-                <span class="reveal-text">López</span>
-                <span class="reveal-text">Carracedo</span>
-            </h1>
-            <p class="hero-description reveal-text">
-                Especializada en branding, diseño digital y producción audiovisual. 
-                Creo identidades visuales que cuentan historias.
-            </p>
-            <div class="hero-cta reveal-text">
-                <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
-                <a href="#contacto" class="btn btn-secondary">Contactar</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </section>
+  <!-- Opcional: si quieres una sans moderna parecida (Satoshi/Neue vibes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Projects Section -->
-    <section class="section section-projects" id="proyectos">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-label">Trabajo Seleccionado</span>
-                <h2 class="section-title">Proyectos Destacados</h2>
-            </header>
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --fg:#f3f3f3;
+      --muted:rgba(243,243,243,.62);
+      --soft:rgba(243,243,243,.12);
+      --soft2:rgba(243,243,243,.08);
+      --max:1200px;
+      --pad:clamp(18px, 3vw, 34px);
+      --radius:18px;
+      --ease:cubic-bezier(.2,.8,.2,1);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
 
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <article class="project-card" data-reveal>
-                    <a href="#" class="project-link">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #2d5a3d 0%, #4a7c59 100%);">
-                                <span class="project-symbol">🌳</span>
-                            </div>
-                            <div class="project-overlay">
-                                <span class="project-view">Ver proyecto</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Branding e Identidad Visual</span>
-                            <h3 class="project-title">Quimeras del Norte</h3>
-                            <p class="project-description">
-                                Identidad corporativa para plataforma de narrativas gallegas. 
-                                Símbolo del roble gallego y quimera mitológica.
-                            </p>
-                        </div>
-                    </a>
-                </article>
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:var(--bg);
+      color:var(--fg);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:geometricPrecision;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+    .grid{display:grid; gap:clamp(14px, 2vw, 22px)}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border:1px solid var(--soft);
+      border-radius:999px;
+      background:transparent;
+      color:var(--fg);
+      cursor:pointer;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+      font-size:14px;
+      letter-spacing:.02em;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(243,243,243,.25); background:rgba(243,243,243,.04)}
+    .pill{
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.06em;
+      color:var(--muted);
+      border:1px solid var(--soft);
+      padding:8px 10px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .rule{height:1px; background:var(--soft2); width:100%; margin:clamp(22px, 4vw, 42px) 0}
+    .kicker{font-family:var(--mono); letter-spacing:.08em; text-transform:uppercase; font-size:12px; color:var(--muted)}
+    .muted{color:var(--muted)}
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
 
-                <!-- Project 2 -->
-                <article class="project-card" data-reveal>
-                    <a href="#" class="project-link">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);">
-                                <span class="project-symbol">🍀</span>
-                            </div>
-                            <div class="project-overlay">
-                                <span class="project-view">Ver proyecto</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Identidad Corporativa</span>
-                            <h3 class="project-title">Nobreh</h3>
-                            <p class="project-description">
-                                Imagen visual para empresa de gestión de inversiones. 
-                                Trébol de 5 hojas, elegancia y simplicidad.
-                            </p>
-                        </div>
-                    </a>
-                </article>
+    /* Top bar */
+    header{
+      position:sticky; top:0;
+      background:linear-gradient(to bottom, rgba(11,11,11,.92), rgba(11,11,11,.76));
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--soft2);
+      z-index:50;
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px var(--pad);
+      max-width:var(--max);
+      margin:0 auto;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:2px;
+      line-height:1.1;
+    }
+    .brand strong{font-weight:600; letter-spacing:.01em}
+    .brand span{font-size:12px; color:var(--muted); font-family:var(--mono)}
+    .top-actions{display:flex; gap:10px; align-items:center}
 
-                <!-- Project 3 -->
-                <article class="project-card" data-reveal>
-                    <a href="#" class="project-link">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #a8d458 0%, #c4e17f 100%);">
-                                <span class="project-symbol">☀️</span>
-                            </div>
-                            <div class="project-overlay">
-                                <span class="project-view">Ver proyecto</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Branding | Proyecto Universitario</span>
-                            <h3 class="project-title">Vitamina 3</h3>
-                            <p class="project-description">
-                                Identidad para dupla creativa. Energía, vitalidad y 
-                                originalidad en cada dosis de diseño.
-                            </p>
-                        </div>
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
+    /* Overlay menu */
+    .overlay{
+      position:fixed; inset:0;
+      background:rgba(11,11,11,.96);
+      backdrop-filter: blur(10px);
+      z-index:100;
+      display:none;
+    }
+    .overlay.open{display:block}
+    .overlay-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:22px var(--pad) 40px;
+      min-height:100%;
+      display:flex; flex-direction:column;
+      gap:clamp(18px, 3vw, 26px);
+    }
+    .overlay-head{display:flex; justify-content:space-between; align-items:center}
+    .menu-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:18px;
+    }
+    .menu-item{
+      display:flex; align-items:baseline; gap:16px;
+      border-bottom:1px solid var(--soft2);
+      padding-bottom:14px;
+    }
+    .menu-num{
+      font-family:var(--mono);
+      color:var(--muted);
+      min-width:42px;
+      letter-spacing:.08em;
+    }
+    .menu-link{
+      font-size:clamp(28px, 4vw, 54px);
+      letter-spacing:-.02em;
+      line-height:1.02;
+      transition:opacity .2s var(--ease), transform .2s var(--ease);
+    }
+    .menu-link:hover{opacity:.85; transform:translateX(2px)}
+    .overlay-foot{
+      margin-top:auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid var(--soft2);
+      padding-top:16px;
+    }
 
-    <!-- About Section -->
-    <section class="section section-about" id="sobre-mi">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content" data-reveal>
-                    <span class="section-label">Sobre Mí</span>
-                    <h2 class="section-title">Creadora de contenido y diseñadora gráfica</h2>
-                    <div class="about-text">
-                        <p>
-                            Especializada en branding, diseño digital y producción audiovisual. 
-                            Mi enfoque estratégico convierte cada elemento visual en un narrador 
-                            de historias, integrando simbolismo cultural y color con propósito.
-                        </p>
-                        <p>
-                            Graduada en Publicidad y Relaciones Públicas por la Universidad de Vigo (2020-2024), 
-                            combino formación académica con experiencia práctica en agencias y proyectos freelance.
-                        </p>
-                    </div>
-                    
-                    <div class="skills">
-                        <h3 class="skills-title">Competencias Técnicas</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">Adobe Illustrator</span>
-                            <span class="skill-tag">Adobe Photoshop</span>
-                            <span class="skill-tag">Adobe InDesign</span>
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">DaVinci Resolve</span>
-                            <span class="skill-tag">WordPress</span>
-                            <span class="skill-tag">Elementor</span>
-                            <span class="skill-tag">CapCut</span>
-                        </div>
-                    </div>
+    /* Hero */
+    main{padding:clamp(24px, 5vw, 64px) 0 60px}
+    .hero{
+      align-items:stretch;
+      grid-template-columns: 1.05fr .95fr;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .title{
+      font-size:clamp(44px, 6.4vw, 90px);
+      letter-spacing:-.04em;
+      line-height:.92;
+      margin:0 0 14px;
+      font-weight:600;
+    }
+    .subtitle{
+      font-size:clamp(16px, 1.5vw, 18px);
+      line-height:1.55;
+      color:var(--muted);
+      max-width:52ch;
+      margin:0 0 18px;
+    }
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
 
-                    <div class="languages">
-                        <h3 class="skills-title">Idiomas</h3>
-                        <div class="languages-list">
-                            <div class="language-item">
-                                <span class="language-name">Español</span>
-                                <span class="language-level">Nativo</span>
-                            </div>
-                            <div class="language-item">
-                                <span class="language-name">Gallego</span>
-                                <span class="language-level">Nativo</span>
-                            </div>
-                            <div class="language-item">
-                                <span class="language-name">Inglés</span>
-                                <span class="language-level">Profesional</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-visual" data-reveal>
-                    <div class="about-image">
-                        <div class="about-placeholder">
-                            <span>Tu foto aquí</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    /* Portrait "cut" effect */
+    .portrait{
+      position:relative;
+      border:1px solid var(--soft2);
+      border-radius:var(--radius);
+      overflow:hidden;
+      min-height:420px;
+      background:#111;
+      isolation:isolate;
+    }
+    .portrait img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter:contrast(1.05) saturate(.95);
+      transform:scale(1.02);
+    }
+    .portrait::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, rgba(255,255,255,.12), transparent 45%);
+      pointer-events:none;
+      z-index:2;
+    }
+    .slice{
+      position:absolute;
+      inset:0;
+      z-index:3;
+      pointer-events:none;
+      mix-blend-mode:screen;
+      opacity:.9;
+      filter:contrast(1.1);
+    }
+    .slice::before, .slice::after{
+      content:"";
+      position:absolute;
+      left:-12%;
+      width:124%;
+      height:22%;
+      background:rgba(243,243,243,.08);
+      border-top:1px solid rgba(243,243,243,.10);
+      border-bottom:1px solid rgba(243,243,243,.10);
+      transform:skewY(-6deg);
+    }
+    .slice::before{top:18%}
+    .slice::after{top:56%}
 
-    <!-- Experience Section -->
-    <section class="section section-experience" id="experiencia">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-label">Trayectoria</span>
-                <h2 class="section-title">Experiencia Profesional</h2>
-            </header>
-
-            <div class="timeline">
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Agosto 2024 - Actualidad</span>
-                        <h3 class="timeline-title">Creadora de Contenido</h3>
-                        <span class="timeline-company">Orestes Comunica</span>
-                        <ul class="timeline-list">
-                            <li>Elaboración de diseños y redacción de copys</li>
-                            <li>Grabación y edición de vídeos</li>
-                            <li>Creación de páginas web y tours virtuales</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Marzo 2024 - Abril 2024</span>
-                        <h3 class="timeline-title">Diseñadora Gráfica</h3>
-                        <span class="timeline-company">AREA 10 Marketing</span>
-                        <ul class="timeline-list">
-                            <li>Creación de diseños y redacción de copys</li>
-                            <li>Grabación y edición de Reels/TikToks</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Enero 2023 - Febrero 2024</span>
-                        <h3 class="timeline-title">Diseñadora Gráfica</h3>
-                        <span class="timeline-company">Freelancer</span>
-                        <ul class="timeline-list">
-                            <li>Creación de diseños y logotipos personalizados</li>
-                            <li>Desarrollo de identidades visuales</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Septiembre - Diciembre 2021</span>
-                        <h3 class="timeline-title">Creadora de Contenido</h3>
-                        <span class="timeline-company">Farmacia Carmen Goicoa</span>
-                        <ul class="timeline-list">
-                            <li>Diseño de plantillas y posts para redes sociales</li>
-                            <li>Gestión de contenido digital</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="education" data-reveal>
-                <h3 class="education-title">Formación</h3>
-                <div class="education-item">
-                    <span class="education-date">2020 - 2024</span>
-                    <h4 class="education-degree">Grado en Publicidad y Relaciones Públicas</h4>
-                    <span class="education-school">Universidad de Vigo</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section section-contact" id="contacto">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-content" data-reveal>
-                    <span class="section-label">Contacto</span>
-                    <h2 class="section-title">Hablemos de tu proyecto</h2>
-                    <p class="contact-text">
-                        ¿Tienes un proyecto en mente? Estoy disponible para colaboraciones 
-                        freelance y nuevas oportunidades profesionales.
-                    </p>
-                    <a href="mailto:carlotalopecarracedo@gmail.com" class="contact-email">
-                        carlotalopecarracedo@gmail.com
-                    </a>
-                    <div class="contact-social">
-                        <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" class="social-link" aria-label="Behance">Behance</a>
-                        <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
-                    </div>
-                </div>
-                
-                <div class="contact-form-wrapper" data-reveal>
-                    <form class="contact-form" action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Nombre</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensaje</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-copyright">© 2026 Carlota López Carracedo. Todos los derechos reservados.</p>
-                <p class="footer-credit">Diseñado y desarrollado con ♥</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
+    /* Marquee */
+    .marquee{
+      border-top:1px solid var(--soft2);
+      border-bottom:1px solid var(--soft2);
+      overflow:hidden;
+      margin:clamp(26px, 4vw, 44px) 0;
+      b
