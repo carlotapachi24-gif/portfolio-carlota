@@ -1,181 +1,180 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carlota López Carracedo | Portfolio Profesional</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#10b981',    // Verde elegante inspirado en Loire + Galicia
-            secondary: '#1e293b',
-            accent: '#f59e0b',
-          },
-          fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    .smooth-scroll { scroll-behavior: smooth; }
-    .project-card:hover img { transform: scale(1.08); }
-    .project-overlay { opacity: 0; }
-    .project-card:hover .project-overlay { opacity: 1; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlota López Carracedo | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans smooth-scroll">
+<body>
 
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-secondary to-gray-950 opacity-90"></div>
-    <div class="text-center z-10 px-6 max-w-5xl">
-      <h1 class="text-6xl md:text-8xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent animate-pulse">
-        Carlota López Carracedo
-      </h1>
-      <p class="text-2xl md:text-4xl mt-4 font-light text-gray-300">
-        Diseñadora Gráfica & Creadora de Contenido
-      </p>
-      <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
-        Branding, diseño digital y producción audiovisual con alma gallega
-      </p>
-      <div class="mt-10 flex flex-wrap justify-center gap-6">
-        <a href="#perfil" class="px-8 py-4 bg-primary hover:bg-emerald-600 rounded-full font-medium text-lg transition transform hover:scale-105">
-          Conóceme
-        </a>
-        <a href="#proyectos" class="px-8 py-4 border-2 border-primary hover:bg-primary/20 rounded-full font-medium text-lg transition">
-          Ver Proyectos
-        </a>
-        <a href="mailto:carlotalopecarracedo@gmail.com" class="px-8 py-4 bg-gray-700 hover:bg-gray-600 rounded-full font-medium text-lg transition">
-          Contacto
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Perfil Profesional -->
-  <section id="perfil" class="py-20 px-6 md:px-12 bg-secondary">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-12 text-primary">Perfil Profesional</h2>
-      <p class="text-xl text-center text-gray-300 max-w-4xl mx-auto leading-relaxed">
-        Creadora de contenido y diseñadora gráfica especializada en branding, diseño digital y producción audiovisual. Experiencia en desarrollo de identidades corporativas, diseño de materiales gráficos y gestión de contenido multiplataforma.
-      </p>
-    </div>
-  </section>
-
-  <!-- Formación + Competencias -->
-  <section class="py-20 px-6 md:px-12">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-      <div>
-        <h3 class="text-3xl font-serif font-bold mb-6 text-primary">Formación</h3>
-        <p class="text-xl">Grado en Publicidad y Relaciones Públicas</p>
-        <p class="text-gray-400">Universidad de Vigo | 2020-2024</p>
-      </div>
-      <div>
-        <h3 class="text-3xl font-serif font-bold mb-6 text-primary">Competencias Técnicas</h3>
-        <ul class="grid grid-cols-2 gap-4 text-gray-300">
-          <li>Adobe Illustrator</li><li>Adobe Photoshop</li>
-          <li>Adobe InDesign</li><li>Canva</li>
-          <li>Figma</li><li>DaVinci Resolve</li>
-          <li>CapCut</li><li>Procreate</li>
-          <li>Elementor</li><li>WordPress</li>
+    <nav>
+        <div class="logo">CL.</div>
+        <ul class="nav-links">
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#perfil">Perfil</a></li>
+            <li><a href="mailto:carlotalopecarracedo@gmail.com" class="cta-btn">Contacto</a></li>
         </ul>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Experiencia Profesional -->
-  <section id="experiencia" class="py-20 px-6 md:px-12 bg-secondary">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-12 text-primary">Experiencia Profesional</h2>
-      <div class="space-y-10">
-        <div>
-          <h4 class="text-2xl font-bold">Creadora de Contenido | Orestes Comunica</h4>
-          <p class="text-gray-400">Agosto 2024 - Actualidad</p>
-          <p>Diseños, copys, edición de vídeos, páginas web y tours virtuales.</p>
+    <header class="hero">
+        <div class="hero-content fade-in">
+            <p class="overline">Portfolio Profesional</p>
+            <h1>Carlota López<br>Carracedo</h1>
+            <p class="subtitle">Branding • Diseño Digital • Producción Audiovisual</p>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="line"></div>
+            </div>
         </div>
-        <div>
-          <h4 class="text-2xl font-bold">Diseñadora Gráfica | AREA 10 Marketing</h4>
-          <p class="text-gray-400">Marzo 2024 - Abril 2024</p>
-          <p>Diseños, redacción de copys y edición de Reels/TikToks.</p>
-        </div>
-        <div>
-          <h4 class="text-2xl font-bold">Diseñadora Gráfica Freelancer</h4>
-          <p class="text-gray-400">Enero 2023 - Febrero 2024</p>
-          <p>Logotipos e identidades visuales personalizadas.</p>
-        </div>
-        <div>
-          <h4 class="text-2xl font-bold">Creadora de Contenido | Farmacia Carmen Goicoa</h4>
-          <p class="text-gray-400">Septiembre - Diciembre 2021</p>
-          <p>Diseño de plantillas y gestión de redes sociales.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Proyectos Destacados -->
-  <section id="proyectos" class="py-20 px-6 md:px-12">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-16 text-primary">Proyectos Destacados</h2>
-      <div class="grid md:grid-cols-3 gap-10">
+    <section id="proyectos">
         
-        <!-- Proyecto 1 -->
-        <div class="project-card relative overflow-hidden rounded-2xl bg-gray-800 shadow-2xl transition transform hover:scale-105">
-          <img src="https://via.placeholder.com/600x800/10b981/ffffff?text=Quimeras+del+Norte" alt="Quimeras del Norte" class="w-full h-96 object-cover transition duration-500">
-          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-            <div>
-              <h4 class="text-2xl font-serif font-bold">Quimeras del Norte</h4>
-              <p class="text-sm text-gray-300 mt-2">Branding e Identidad Visual</p>
-              <p class="text-sm mt-4">Plataforma de narrativas gallegas con roble y quimera como símbolos centrales.</p>
+        <article class="project-item">
+            <div class="project-text">
+                <span class="project-number">01</span>
+                <h3>Quimeras del Norte</h3>
+                <p class="project-category">Branding e Identidad Visual</p>
+                <p class="project-desc">Identidad corporativa para una plataforma de narrativas gallegas. Un sistema visual basado en el roble (Carballo) y el color verde naturaleza.</p>
+                <ul class="tags">
+                    <li>Logotipo</li>
+                    <li>Identidad Visual</li>
+                    <li>Cultura Gallega</li>
+                </ul>
             </div>
-          </div>
-        </div>
-
-        <!-- Proyecto 2 -->
-        <div class="project-card relative overflow-hidden rounded-2xl bg-gray-800 shadow-2xl transition transform hover:scale-105">
-          <img src="https://via.placeholder.com/600x800/f59e0b/ffffff?text=Nobreh" alt="Nobreh" class="w-full h-96 object-cover transition duration-500">
-          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-            <div>
-              <h4 class="text-2xl font-serif font-bold">Nobreh</h4>
-              <p class="text-sm text-gray-300 mt-2">Identidad Corporativa</p>
-              <p class="text-sm mt-4">Trébol de 5 hojas en dorado para gestión de inversiones familiar.</p>
+            <div class="project-img-wrapper">
+                <img src="https://via.placeholder.com/800x600/2d4a22/ffffff?text=Quimeras+del+Norte" alt="Quimeras del Norte Branding">
             </div>
-          </div>
-        </div>
+        </article>
 
-        <!-- Proyecto 3 -->
-        <div class="project-card relative overflow-hidden rounded-2xl bg-gray-800 shadow-2xl transition transform hover:scale-105">
-          <img src="https://via.placeholder.com/600x800/10b981/ffffff?text=Vitamina+3" alt="Vitamina 3" class="w-full h-96 object-cover transition duration-500">
-          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-            <div>
-              <h4 class="text-2xl font-serif font-bold">Vitamina 3</h4>
-              <p class="text-sm text-gray-300 mt-2">Branding Universitario</p>
-              <p class="text-sm mt-4">Energía y originalidad con símbolo solar y verde lima.</p>
+        <article class="project-item reverse">
+            <div class="project-text">
+                <span class="project-number">02</span>
+                <h3>Nobreh</h3>
+                <p class="project-category">Identidad Corporativa | Inversiones</p>
+                <p class="project-desc">Imagen visual para gestión de inversiones familiares. Elegancia y simplicidad representadas en un trébol de 5 hojas y tonos dorados.</p>
+                <ul class="tags">
+                    <li>Minimalismo</li>
+                    <li>Sector Financiero</li>
+                    <li>Branding</li>
+                </ul>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="project-img-wrapper">
+                <img src="https://via.placeholder.com/800x600/e8c85e/ffffff?text=Nobreh+Identidad" alt="Nobreh Branding">
+            </div>
+        </article>
 
-  <!-- Contacto -->
-  <section id="contacto" class="py-20 px-6 md:px-12 bg-secondary text-center">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8 text-primary">Contacto</h2>
-      <p class="text-xl mb-6">¿Hablamos de tu próximo proyecto?</p>
-      <a href="mailto:carlotalopecarracedo@gmail.com" class="text-2xl font-medium text-primary hover:underline">
-        carlotalopecarracedo@gmail.com
-      </a>
-      <p class="mt-12 text-gray-500">Creado con amor por Carlota • 2026</p>
-    </div>
-  </section>
+        <article class="project-item">
+            <div class="project-text">
+                <span class="project-number">03</span>
+                <h3>Vitamina 3</h3>
+                <p class="project-category">Branding | Proyecto Universitario</p>
+                <p class="project-desc">"El 33,3% de tu dosis diaria de energía". Una marca que aporta vitalidad atípica y diferenciación mediante un sistema gráfico basado en fracciones.</p>
+                <ul class="tags">
+                    <li>Estrategia Creativa</li>
+                    <li>Diseño Audaz</li>
+                    <li>Energía Visual</li>
+                </ul>
+            </div>
+            <div class="project-img-wrapper">
+                <img src="https://via.placeholder.com/800x600/ccff00/000000?text=Vitamina+3" alt="Vitamina 3 Branding">
+            </div>
+        </article>
+    </section>
+
+    <hr class="separator">
+
+    <section id="perfil" class="resume-section">
+        <div class="resume-grid">
+            
+            <aside class="resume-sidebar">
+                <h2>Sobre Mí</h2>
+                <p>Creadora de contenido y diseñadora gráfica especializada en crear identidades que cuentan historias. Mi enfoque estratégico busca que cada elemento visual tenga un propósito y significado, integrando simbolismo cultural y simplicidad elegante.</p>
+                
+                <div class="skills-block">
+                    <h4>Software</h4>
+                    <p>Illustrator, Photoshop, InDesign, Figma, DaVinci Resolve, CapCut, WordPress.</p>
+                </div>
+
+                <div class="skills-block">
+                    <h4>Idiomas</h4>
+                    <p>Español (Nativo), Gallego (Nativo), Inglés (Profesional).</p>
+                </div>
+            </aside>
+
+            <div class="resume-content">
+                
+                <div class="resume-block">
+                    <h3>Experiencia Profesional</h3>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <h4>Orestes Comunica</h4>
+                            <span class="date">Ago 2024 - Actualidad</span>
+                        </div>
+                        <p class="role">Creadora de Contenido</p>
+                        <p>Diseño, redacción de copys, edición de vídeo y creación web.</p>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <h4>AREA 10 Marketing</h4>
+                            <span class="date">Mar 2024 - Abr 2024</span>
+                        </div>
+                        <p class="role">Diseñadora Gráfica</p>
+                        <p>Diseño, copys y edición de Reels/TikToks.</p>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <h4>Freelancer</h4>
+                            <span class="date">Ene 2023 - Feb 2024</span>
+                        </div>
+                        <p class="role">Diseñadora Gráfica</p>
+                        <p>Identidades visuales y logotipos personalizados.</p>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <h4>Farmacia Carmen Goicoa</h4>
+                            <span class="date">Sep 2021 - Dic 2021</span>
+                        </div>
+                        <p class="role">Creadora de Contenido</p>
+                    </div>
+                </div>
+
+                <div class="resume-block">
+                    <h3>Formación</h3>
+                    <div class="job">
+                        <h4>Grado en Publicidad y Relaciones Públicas</h4>
+                        <p class="role">Universidad de Vigo | 2020-2024</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Creemos algo<br><i>único</i> juntos.</h2>
+            <a href="mailto:carlotalopecarracedo@gmail.com" class="email-link">carlotalopecarracedo@gmail.com</a>
+            
+            <div class="footer-meta">
+                <p>© 2026 Carlota López Carracedo</p>
+                <div class="socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Behance</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
