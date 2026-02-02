@@ -3,12 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carlota López Cakrracedo - Portfolio Profesional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Carlota López Carracedo - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #fdf8f0;
+            --warm-beige: #f4e9d8;
+            --soft-gold: #d4a574;
+            --deep-charcoal: #2a2a2a;
+            --text-light: #4a4a4a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--deep-charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation orgánica */
+        nav {
+            position: fixed;
+            top: 2rem; right: 5%; z-index: 1000;
+            background: rgba(253, 248, 240, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--deep-charcoal);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav a:hover {
+            color: var(--soft-gold);
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; left: 0;
+            width: 0; height: 2px;
+            background: var(--soft-gold);
+            transition: width 0.4s;
+        }
+
+        nav a:hover::after { width: 100%; }
+
+        /* Hero - GRANDE Y ASIMÉTRICO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(2rem, 5vw, 8rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212,165,116,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(253,248,240,0.8) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 400;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--deep-charcoal) 0%, var(--soft-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 300;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: var(--deep-charcoal);
+            text-decoration: none;
+            border: 2px solid var(--soft-gold);
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: var(--soft-gold);
+            z-index: -1;
+            transition: left 0.4s;
+        }
+
+        .cta:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(212,165,116,0.3);
+        }
+
+        .cta:hover::before { left: 0; }
+
+        .hero-image {
+            width: 400px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--warm-beige), var(--cream));
+            border-radius: 20% 60% 30% 70%;
+            position: relative;
+            box-shadow: 
+                40px 40px 80px rgba(0,0,0,0.1),
+                inset 0 0 40px rgba(212,165,116,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Secciones orgánicas */
+        section {
+            padding: clamp(8rem, 15vw, 12rem) 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 400;
+            color: var(--deep-charcoal);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--soft-gold), transparent);
+        }
+
+        /* Grid asimétrico */
+        .organic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem 5rem;
+            grid-auto-rows: 1fr;
+        }
+
+        .organic-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(20px);
+            padding: 3rem 2.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(212,165,116,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .organic-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--soft-gold), transparent);
+        }
+
+        .organic-card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+        }
+
+        .organic-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--deep-charcoal);
+        }
+
+        /* Proyectos - Cards inclinadas */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 4rem;
+            padding: 2rem 0;
+        }
+
+        .project-card {
+            position: relative;
+            height: 500px;
+            border-radius: 40px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.1),
+                inset 0 2px 10px rgba(212,165,116,0.1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: rotate(-1deg);
+        }
+
+        .project-card:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .project-media {
+            height: 65%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-media::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--soft-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .project-card:hover .project-media::before {
+            opacity: 0.1;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+            height: 35%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contacto asimétrico */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: start;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(20px);
+            padding: 4rem;
+            border-radius: 40px;
+            border: 1px solid rgba(212,165,116,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero { flex-direction: column; text-align: center; padding: 2rem 1rem; }
+            .hero-image { width: 280px; height: 350px; margin-top: 3rem; }
+            .contact-section { grid-template-columns: 1fr; gap: 3rem; }
+            section { padding: 6rem 2rem; }
+        }
+
+        /* Animaciones de entrada */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <nav id="nav">
+    <!-- Navegación flotante -->
+    <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#perfil">Perfil</a></li>
@@ -18,119 +342,152 @@
         </ul>
     </nav>
 
+    <!-- Hero GRANDE ASIMÉTRICO -->
     <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Carlota López Carracedo</h1>
-            <p>Creadora de contenido y diseñadora gráfica especializada en branding, diseño digital y producción audiovisual.</p>
-            <a href="#contacto" class="cta-button">Trabajemos juntos</a>
+        <div class="hero-content fade-in-up">
+            <h1>Carlota<br>López<br>Carracedo</h1>
+            <p class="subtitle">Creadora de contenido y diseñadora gráfica especializada en branding, diseño digital y producción audiovisual.</p>
+            <a href="#contacto" class="cta">Comencemos tu proyecto</a>
         </div>
+        <div class="hero-image"></div>
     </section>
 
-    <section id="perfil">
-        <h2 class="section-title">Perfil Profesional</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Formación</h3>
-                <p><strong>Grado en Publicidad y Relaciones Públicas</strong><br>Universidad de Vigo | 2020-2024</p>
+    <!-- Perfil -->
+    <section id="perfil" class="fade-in-up">
+        <div class="section-header">
+            <h2 class="section-title">Perfil Profesional</h2>
+        </div>
+        <div class="organic-grid">
+            <div class="organic-card">
+                <h3>🎓 Formación</h3>
+                <p><strong>Grado en Publicidad y Relaciones Públicas</strong><br>
+                Universidad de Vigo | 2020-2024</p>
             </div>
-            <div class="card">
-                <h3>Competencias Técnicas</h3>
-                <ul class="skills-list">
-                    <li>Adobe Illustrator, Photoshop, InDesign</li>
-                    <li>Figma, Canva, DaVinci Resolve</li>
-                    <li>CapCut, Procreate, Elementor</li>
-                    <li>WordPress</li>
+            <div class="organic-card">
+                <h3>🛠️ Herramientas</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li>• Adobe Illustrator, Photoshop, InDesign</li>
+                    <li>• Figma, DaVinci Resolve, CapCut</li>
+                    <li>• Procreate, Elementor, WordPress</li>
                 </ul>
             </div>
         </div>
     </section>
 
+    <!-- Experiencia -->
     <section id="experiencia">
-        <h2 class="section-title">Experiencia Profesional</h2>
-        <div class="grid">
-            <div class="card">
+        <div class="section-header">
+            <h2 class="section-title">Experiencia</h2>
+        </div>
+        <div class="organic-grid">
+            <div class="organic-card">
                 <h3>Orestes Comunica</h3>
-                <p class="job-date">Agosto 2024 - Actualidad</p>
-                <p class="job-role">Creadora de Contenido</p>
-                <ul>
-                    <li>Elaboración de diseños y redacción de copys</li>
-                    <li>Grabación y edición de vídeos</li>
-                    <li>Creación de páginas web y tours virtuales</li>
+                <p style="color: #666; margin-bottom: 1rem;">Agosto 2024 - Actualidad</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li>• Elaboración de diseños y redacción de copys</li>
+                    <li>• Grabación y edición de vídeos</li>
+                    <li>• Creación de páginas web y tours virtuales</li>
                 </ul>
             </div>
-            <div class="card">
+            <div class="organic-card">
                 <h3>AREA 10 Marketing</h3>
-                <p class="job-date">Marzo - Abril 2024</p>
-                <p class="job-role">Diseñadora Gráfica</p>
-                <p>Creación de diseños, redacción de copys, grabación y edición de Reels/TikToks.</p>
+                <p style="color: #666; margin-bottom: 1rem;">Marzo - Abril 2024</p>
+                <p>Diseños, redacción de copys y edición de Reels/TikToks.</p>
             </div>
-            <div class="card">
-                <h3>Freelancer</h3>
-                <p class="job-date">Enero 2023 - Febrero 2024</p>
-                <p class="job-role">Diseñadora Gráfica</p>
-                <p>Creación de diseños y logotipos personalizados. Desarrollo de identidades visuales.</p>
+            <div class="organic-card">
+                <h3>Freelance</h3>
+                <p style="color: #666; margin-bottom: 1rem;">Enero 2023 - Febrero 2024</p>
+                <p>Logotipos personalizados e identidades visuales.</p>
             </div>
         </div>
     </section>
 
+    <!-- Proyectos - Cards inclinadas -->
     <section id="proyectos">
-        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="section-header">
+            <h2 class="section-title">Proyectos</h2>
+        </div>
         <div class="projects-grid">
-            <div class="project">
-                <div class="project-image" style="background: linear-gradient(135deg, #2d5a3c, #4a8a5e)">
-                    <div class="project-icon">🌿</div>
-                    <h4>Quimeras del Norte</h4>
+            <div class="project-card fade-in-up">
+                <div class="project-media" style="background: linear-gradient(135deg, #2d5a3c, #4a8a5e);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 5rem;">🌿</div>
                 </div>
-                <div class="project-info">
-                    <h3>Quimeras del Norte</h3>
-                    <p>Branding e Identidad Visual para plataforma web de narrativas gallegas. Carballo, verde natural y quimeras mitológicas.</p>
-                </div>
-            </div>
-            <div class="project">
-                <div class="project-image" style="background: linear-gradient(135deg, #d4a017, #f7d794)">
-                    <div class="project-icon">🍀</div>
-                    <h4>NobreH</h4>
-                </div>
-                <div class="project-info">
-                    <h3>NobreH</h3>
-                    <p>Identidad Corporativa para gestión de inversiones. Trébol de 5 hojas, dorado elegante y minimalista.</p>
+                <div class="project-content">
+                    <h3 class="project-title">Quimeras del Norte</h3>
+                    <p>Branding para narrativas gallegas con carballo y quimeras mitológicas.</p>
                 </div>
             </div>
-            <div class="project">
-                <div class="project-image" style="background: linear-gradient(135deg, #7ed321, #a8e6cf)">
-                    <div class="project-icon">☀️</div>
-                    <h4>Vitamina 3</h4>
+            <div class="project-card fade-in-up" style="transform: rotate(1deg);">
+                <div class="project-media" style="background: linear-gradient(135deg, #d4a017, #f7d794);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 5rem;">🍀</div>
                 </div>
-                <div class="project-info">
-                    <h3>Vitamina 3</h3>
-                    <p>Proyecto universitario de branding. 33,3% energía, verde lima y simbolismo nutricional.</p>
+                <div class="project-content">
+                    <h3 class="project-title">NobreH</h3>
+                    <p>Identidad para gestión de inversiones con trébol dorado.</p>
+                </div>
+            </div>
+            <div class="project-card fade-in-up" style="transform: rotate(-0.5deg);">
+                <div class="project-media" style="background: linear-gradient(135deg, #7ed321, #a8e6cf);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 5rem;">☀️</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Vitamina 3</h3>
+                    <p>Branding universitario con energía verde lima.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contacto -->
     <section id="contacto">
-        <h2 class="section-title">Contacto</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>¡Hablemos de tu proyecto!</h3>
-                <p><strong>Email:</strong> <a href="mailto:carlotalopecarracedo@gmail.com">carlotalopecarracedo@gmail.com</a></p>
-                <ul class="services-list">
-                    <li>Identidad corporativa</li>
-                    <li>Contenido para redes</li>
-                    <li>Producción audiovisual</li>
-                    <li>Desarrollo web</li>
+        <div class="section-header">
+            <h2 class="section-title">Contacto</h2>
+        </div>
+        <div class="contact-section">
+            <div class="contact-card fade-in-up">
+                <h3 style="font-size: 2rem; margin-bottom: 2rem; color: var(--soft-gold);">¡Hablemos!</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    <strong>✉️ Email:</strong><br>
+                    <a href="mailto:carlotalopecarracedo@gmail.com" style="color: var(--deep-charcoal); text-decoration: none;">carlotalopecarracedo@gmail.com</a>
+                </p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.8rem;">• Identidad corporativa</li>
+                    <li style="margin-bottom: 0.8rem;">• Contenido redes sociales</li>
+                    <li style="margin-bottom: 0.8rem;">• Producción audiovisual</li>
+                    <li>• Desarrollo web</li>
                 </ul>
             </div>
-            <form class="contact-form" id="contactForm">
-                <input type="text" placeholder="Tu nombre" required>
-                <input type="email" placeholder="Tu email" required>
-                <textarea rows="5" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
-                <button type="submit">Enviar mensaje</button>
+            <form class="contact-card fade-in-up" style="padding: 3.5rem;">
+                <input type="text" placeholder="Tu nombre" style="width: 100%; padding: 1.5rem; margin-bottom: 1.5rem; border: 2px solid rgba(212,165,116,0.3); border-radius: 20px; font-family: inherit; font-size: 1rem;">
+                <input type="email" placeholder="Tu email" style="width: 100%; padding: 1.5rem; margin-bottom: 1.5rem; border: 2px solid rgba(212,165,116,0.3); border-radius: 20px; font-family: inherit; font-size: 1rem;">
+                <textarea rows="6" placeholder="Cuéntame sobre tu proyecto..." style="width: 100%; padding: 1.5rem; margin-bottom: 2rem; border: 2px solid rgba(212,165,116,0.3); border-radius: 20px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
+                <button type="submit" class="cta" style="background: var(--soft-gold); color: var(--deep-charcoal);">Enviar mensaje</button>
             </form>
         </div>
     </section>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
