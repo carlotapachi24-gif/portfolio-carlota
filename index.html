@@ -3,573 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carlota López Carracedo | Portfolio</title>
+    <title>Carlota López Carracedo | Diseñadora Gráfica & Creadora de Contenido</title>
+    <meta name="description" content="Portfolio de Carlota López Carracedo - Diseño gráfico, branding y producción audiovisual.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
-
-    <style>
-        /* === AQUÍ EMPIEZA EL DISEÑO (CSS) === */
-        
-        /* VARIABLES Y RESET */
-        :root {
-            --bg-color: #fcfcfc; /* Un blanco roto muy suave */
-            --text-main: #111111;
-            --text-light: #555555;
-            --accent-line: #e0e0e0;
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
-            --container-width: 90%;
-            --max-width: 1200px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* NAVEGACIÓN */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 5%;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(252, 252, 252, 0.95);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-        }
-
-        .logo {
-            font-family: var(--font-serif);
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.6;
-        }
-
-        .cta-btn {
-            border: 1px solid var(--text-main);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-        }
-
-        .cta-btn:hover {
-            background: var(--text-main);
-            color: var(--bg-color) !important;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 5%;
-        }
-
-        .overline {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(3rem, 8vw, 6rem); /* Responsive font size */
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-        }
-
-        /* ANIMACIÓN DE ENTRADA */
-        .fade-in {
-            animation: fadeIn Up 1.5s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            opacity: 0.5;
-        }
-
-        .scroll-indicator .line {
-            width: 1px;
-            height: 40px;
-            background: var(--text-main);
-        }
-
-        /* SECCIÓN PROYECTOS */
-        #proyectos {
-            padding: 5rem 5%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-
-        .project-item {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            margin-bottom: 10rem;
-        }
-
-        .project-item.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .project-text {
-            flex: 1;
-        }
-
-        .project-number {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            color: #ccc;
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        .project-text h3 {
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-        }
-
-        .project-category {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .project-desc {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 90%;
-        }
-
-        .tags {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .tags li {
-            font-size: 0.8rem;
-            border: 1px solid #eee;
-            padding: 5px 15px;
-            border-radius: 20px;
-            color: #666;
-        }
-
-        .project-img-wrapper {
-            flex: 1.5;
-            overflow: hidden;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
-            background-color: #eee; /* Color de fondo por si no carga la imagen */
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-img-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.7s ease;
-        }
-
-        .project-img-wrapper:hover img {
-            transform: scale(1.03);
-        }
-
-        /* SEPARADOR */
-        .separator {
-            border: 0;
-            height: 1px;
-            background: var(--accent-line);
-            margin: 0 5%;
-        }
-
-        /* PERFIL Y RESUME */
-        .resume-section {
-            padding: 8rem 5%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-
-        .resume-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-        }
-
-        .resume-sidebar h2 {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .skills-block {
-            margin-top: 3rem;
-        }
-
-        .skills-block h4 {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.8rem;
-            border-bottom: 1px solid var(--text-main);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .resume-block {
-            margin-bottom: 4rem;
-        }
-
-        .resume-block h3 {
-            font-size: 1.5rem;
-            font-family: var(--font-serif);
-            margin-bottom: 2rem;
-            color: var(--text-main);
-        }
-
-        .job {
-            margin-bottom: 2.5rem;
-            border-left: 1px solid var(--accent-line);
-            padding-left: 20px;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-        }
-
-        .job h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .date {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        .role {
-            font-weight: 500;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #111;
-            color: #fff;
-            padding: 8rem 5% 4rem;
-            text-align: center;
-        }
-
-        footer h2 {
-            font-family: var(--font-serif);
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        footer h2 i {
-            font-family: var(--font-serif);
-            font-weight: 400;
-        }
-
-        .email-link {
-            color: #fff;
-            font-size: 1.5rem;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 5px;
-            transition: all 0.3s;
-        }
-
-        .email-link:hover {
-            border-color: #fff;
-        }
-
-        .footer-meta {
-            margin-top: 5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #333;
-            padding-top: 2rem;
-        }
-
-        .socials a {
-            color: #666;
-            text-decoration: none;
-            margin-left: 20px;
-            transition: color 0.3s;
-        }
-
-        .socials a:hover {
-            color: #fff;
-        }
-
-        /* RESPONSIVE (MÓVIL) */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            
-            .hero h1 { font-size: 3rem; }
-            
-            .project-item, .project-item.reverse {
-                flex-direction: column;
-                gap: 2rem;
-                text-align: left;
-            }
-
-            .resume-grid {
-                grid-template-columns: 1fr;
-            }
-
-            footer h2 { font-size: 2.5rem; }
-            
-            .footer-meta {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <nav>
-        <div class="logo">CL.</div>
-        <ul class="nav-links">
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#perfil">Perfil</a></li>
-            <li><a href="mailto:carlotalopecarracedo@gmail.com" class="cta-btn">Contacto</a></li>
-        </ul>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">CL</a>
+            <ul class="nav-menu">
+                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+                <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content fade-in">
-            <p class="overline">Portfolio Profesional</p>
-            <h1>Carlota López<br>Carracedo</h1>
-            <p class="subtitle">Branding • Diseño Digital • Producción Audiovisual</p>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <div class="line"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <p class="hero-label reveal-text">Diseñadora Gráfica & Creadora de Contenido</p>
+            <h1 class="hero-title">
+                <span class="reveal-text">Carlota</span>
+                <span class="reveal-text">López</span>
+                <span class="reveal-text">Carracedo</span>
+            </h1>
+            <p class="hero-description reveal-text">
+                Especializada en branding, diseño digital y producción audiovisual. 
+                Creo identidades visuales que cuentan historias.
+            </p>
+            <div class="hero-cta reveal-text">
+                <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+                <a href="#contacto" class="btn btn-secondary">Contactar</a>
             </div>
         </div>
-    </header>
-
-    <section id="proyectos">
-        
-        <article class="project-item">
-            <div class="project-text">
-                <span class="project-number">01</span>
-                <h3>Quimeras del Norte</h3>
-                <p class="project-category">Branding e Identidad Visual</p>
-                <p class="project-desc">Identidad corporativa para una plataforma de narrativas gallegas. Un sistema visual basado en el roble (Carballo) y el color verde naturaleza.</p>
-                <ul class="tags">
-                    <li>Logotipo</li>
-                    <li>Identidad Visual</li>
-                    <li>Cultura Gallega</li>
-                </ul>
-            </div>
-            <div class="project-img-wrapper">
-                <img src="https://via.placeholder.com/800x600/2d4a22/ffffff?text=Quimeras+del+Norte" alt="Quimeras del Norte Branding">
-            </div>
-        </article>
-
-        <article class="project-item reverse">
-            <div class="project-text">
-                <span class="project-number">02</span>
-                <h3>Nobreh</h3>
-                <p class="project-category">Identidad Corporativa | Inversiones</p>
-                <p class="project-desc">Imagen visual para gestión de inversiones familiares. Elegancia y simplicidad representadas en un trébol de 5 hojas y tonos dorados.</p>
-                <ul class="tags">
-                    <li>Minimalismo</li>
-                    <li>Sector Financiero</li>
-                    <li>Branding</li>
-                </ul>
-            </div>
-            <div class="project-img-wrapper">
-                <img src="https://via.placeholder.com/800x600/e8c85e/ffffff?text=Nobreh+Identidad" alt="Nobreh Branding">
-            </div>
-        </article>
-
-        <article class="project-item">
-            <div class="project-text">
-                <span class="project-number">03</span>
-                <h3>Vitamina 3</h3>
-                <p class="project-category">Branding | Proyecto Universitario</p>
-                <p class="project-desc">"El 33,3% de tu dosis diaria de energía". Una marca que aporta vitalidad atípica y diferenciación mediante un sistema gráfico basado en fracciones.</p>
-                <ul class="tags">
-                    <li>Estrategia Creativa</li>
-                    <li>Diseño Audaz</li>
-                    <li>Energía Visual</li>
-                </ul>
-            </div>
-            <div class="project-img-wrapper">
-                <img src="https://via.placeholder.com/800x600/ccff00/000000?text=Vitamina+3" alt="Vitamina 3 Branding">
-            </div>
-        </article>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
     </section>
 
-    <hr class="separator">
+    <!-- Projects Section -->
+    <section class="section section-projects" id="proyectos">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-label">Trabajo Seleccionado</span>
+                <h2 class="section-title">Proyectos Destacados</h2>
+            </header>
 
-    <section id="perfil" class="resume-section">
-        <div class="resume-grid">
-            
-            <aside class="resume-sidebar">
-                <h2>Sobre Mí</h2>
-                <p>Creadora de contenido y diseñadora gráfica especializada en crear identidades que cuentan historias. Mi enfoque estratégico busca que cada elemento visual tenga un propósito y significado, integrando simbolismo cultural y simplicidad elegante.</p>
-                
-                <div class="skills-block">
-                    <h4>Software</h4>
-                    <p>Illustrator, Photoshop, InDesign, Figma, DaVinci Resolve, CapCut, WordPress.</p>
-                </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card" data-reveal>
+                    <a href="#" class="project-link">
+                        <div class="project-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #2d5a3d 0%, #4a7c59 100%);">
+                                <span class="project-symbol">🌳</span>
+                            </div>
+                            <div class="project-overlay">
+                                <span class="project-view">Ver proyecto</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Branding e Identidad Visual</span>
+                            <h3 class="project-title">Quimeras del Norte</h3>
+                            <p class="project-description">
+                                Identidad corporativa para plataforma de narrativas gallegas. 
+                                Símbolo del roble gallego y quimera mitológica.
+                            </p>
+                        </div>
+                    </a>
+                </article>
 
-                <div class="skills-block">
-                    <h4>Idiomas</h4>
-                    <p>Español (Nativo), Gallego (Nativo), Inglés (Profesional).</p>
-                </div>
-            </aside>
+                <!-- Project 2 -->
+                <article class="project-card" data-reveal>
+                    <a href="#" class="project-link">
+                        <div class="project-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);">
+                                <span class="project-symbol">🍀</span>
+                            </div>
+                            <div class="project-overlay">
+                                <span class="project-view">Ver proyecto</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Identidad Corporativa</span>
+                            <h3 class="project-title">Nobreh</h3>
+                            <p class="project-description">
+                                Imagen visual para empresa de gestión de inversiones. 
+                                Trébol de 5 hojas, elegancia y simplicidad.
+                            </p>
+                        </div>
+                    </a>
+                </article>
 
-            <div class="resume-content">
-                
-                <div class="resume-block">
-                    <h3>Experiencia Profesional</h3>
+                <!-- Project 3 -->
+                <article class="project-card" data-reveal>
+                    <a href="#" class="project-link">
+                        <div class="project-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #a8d458 0%, #c4e17f 100%);">
+                                <span class="project-symbol">☀️</span>
+                            </div>
+                            <div class="project-overlay">
+                                <span class="project-view">Ver proyecto</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Branding | Proyecto Universitario</span>
+                            <h3 class="project-title">Vitamina 3</h3>
+                            <p class="project-description">
+                                Identidad para dupla creativa. Energía, vitalidad y 
+                                originalidad en cada dosis de diseño.
+                            </p>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-about" id="sobre-mi">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content" data-reveal>
+                    <span class="section-label">Sobre Mí</span>
+                    <h2 class="section-title">Creadora de contenido y diseñadora gráfica</h2>
+                    <div class="about-text">
+                        <p>
+                            Especializada en branding, diseño digital y producción audiovisual. 
+                            Mi enfoque estratégico convierte cada elemento visual en un narrador 
+                            de historias, integrando simbolismo cultural y color con propósito.
+                        </p>
+                        <p>
+                            Graduada en Publicidad y Relaciones Públicas por la Universidad de Vigo (2020-2024), 
+                            combino formación académica con experiencia práctica en agencias y proyectos freelance.
+                        </p>
+                    </div>
                     
-                    <div class="job">
-                        <div class="job-header">
-                            <h4>Orestes Comunica</h4>
-                            <span class="date">Ago 2024 - Actualidad</span>
+                    <div class="skills">
+                        <h3 class="skills-title">Competencias Técnicas</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Adobe Illustrator</span>
+                            <span class="skill-tag">Adobe Photoshop</span>
+                            <span class="skill-tag">Adobe InDesign</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">DaVinci Resolve</span>
+                            <span class="skill-tag">WordPress</span>
+                            <span class="skill-tag">Elementor</span>
+                            <span class="skill-tag">CapCut</span>
                         </div>
-                        <p class="role">Creadora de Contenido</p>
-                        <p>Diseño, redacción de copys, edición de vídeo y creación web.</p>
                     </div>
 
-                    <div class="job">
-                        <div class="job-header">
-                            <h4>AREA 10 Marketing</h4>
-                            <span class="date">Mar 2024 - Abr 2024</span>
+                    <div class="languages">
+                        <h3 class="skills-title">Idiomas</h3>
+                        <div class="languages-list">
+                            <div class="language-item">
+                                <span class="language-name">Español</span>
+                                <span class="language-level">Nativo</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">Gallego</span>
+                                <span class="language-level">Nativo</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">Inglés</span>
+                                <span class="language-level">Profesional</span>
+                            </div>
                         </div>
-                        <p class="role">Diseñadora Gráfica</p>
-                        <p>Diseño, copys y edición de Reels/TikToks.</p>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <h4>Freelancer</h4>
-                            <span class="date">Ene 2023 - Feb 2024</span>
-                        </div>
-                        <p class="role">Diseñadora Gráfica</p>
-                        <p>Identidades visuales y logotipos personalizados.</p>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <h4>Farmacia Carmen Goicoa</h4>
-                            <span class="date">Sep 2021 - Dic 2021</span>
-                        </div>
-                        <p class="role">Creadora de Contenido</p>
                     </div>
                 </div>
-
-                <div class="resume-block">
-                    <h3>Formación</h3>
-                    <div class="job">
-                        <h4>Grado en Publicidad y Relaciones Públicas</h4>
-                        <p class="role">Universidad de Vigo | 2020-2024</p>
+                
+                <div class="about-visual" data-reveal>
+                    <div class="about-image">
+                        <div class="about-placeholder">
+                            <span>Tu foto aquí</span>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <h2>Creemos algo<br><i>único</i> juntos.</h2>
-            <a href="mailto:carlotalopecarracedo@gmail.com" class="email-link">carlotalopecarracedo@gmail.com</a>
-            
-            <div class="footer-meta">
-                <p>© 2026 Carlota López Carracedo</p>
-                <div class="socials">
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Behance</a>
-                    <a href="#">Instagram</a>
+    <!-- Experience Section -->
+    <section class="section section-experience" id="experiencia">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-label">Trayectoria</span>
+                <h2 class="section-title">Experiencia Profesional</h2>
+            </header>
+
+            <div class="timeline">
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Agosto 2024 - Actualidad</span>
+                        <h3 class="timeline-title">Creadora de Contenido</h3>
+                        <span class="timeline-company">Orestes Comunica</span>
+                        <ul class="timeline-list">
+                            <li>Elaboración de diseños y redacción de copys</li>
+                            <li>Grabación y edición de vídeos</li>
+                            <li>Creación de páginas web y tours virtuales</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Marzo 2024 - Abril 2024</span>
+                        <h3 class="timeline-title">Diseñadora Gráfica</h3>
+                        <span class="timeline-company">AREA 10 Marketing</span>
+                        <ul class="timeline-list">
+                            <li>Creación de diseños y redacción de copys</li>
+                            <li>Grabación y edición de Reels/TikToks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Enero 2023 - Febrero 2024</span>
+                        <h3 class="timeline-title">Diseñadora Gráfica</h3>
+                        <span class="timeline-company">Freelancer</span>
+                        <ul class="timeline-list">
+                            <li>Creación de diseños y logotipos personalizados</li>
+                            <li>Desarrollo de identidades visuales</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Septiembre - Diciembre 2021</span>
+                        <h3 class="timeline-title">Creadora de Contenido</h3>
+                        <span class="timeline-company">Farmacia Carmen Goicoa</span>
+                        <ul class="timeline-list">
+                            <li>Diseño de plantillas y posts para redes sociales</li>
+                            <li>Gestión de contenido digital</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education" data-reveal>
+                <h3 class="education-title">Formación</h3>
+                <div class="education-item">
+                    <span class="education-date">2020 - 2024</span>
+                    <h4 class="education-degree">Grado en Publicidad y Relaciones Públicas</h4>
+                    <span class="education-school">Universidad de Vigo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-contact" id="contacto">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-content" data-reveal>
+                    <span class="section-label">Contacto</span>
+                    <h2 class="section-title">Hablemos de tu proyecto</h2>
+                    <p class="contact-text">
+                        ¿Tienes un proyecto en mente? Estoy disponible para colaboraciones 
+                        freelance y nuevas oportunidades profesionales.
+                    </p>
+                    <a href="mailto:carlotalopecarracedo@gmail.com" class="contact-email">
+                        carlotalopecarracedo@gmail.com
+                    </a>
+                    <div class="contact-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" class="social-link" aria-label="Behance">Behance</a>
+                        <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper" data-reveal>
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">© 2026 Carlota López Carracedo. Todos los derechos reservados.</p>
+                <p class="footer-credit">Diseñado y desarrollado con ♥</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
