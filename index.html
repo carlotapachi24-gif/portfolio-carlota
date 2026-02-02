@@ -234,4 +234,687 @@
       border-bottom:1px solid var(--soft2);
       overflow:hidden;
       margin:clamp(26px, 4vw, 44px) 0;
-      b
+      background:rgba(255,255,255,.02);
+    }
+    .marquee-track{
+      display:flex;
+      gap:40px;
+      padding:16px 0;
+      will-change:transform;
+      animation:scroll 18s linear infinite;
+    }
+    .marquee span{
+      font-size:clamp(28px, 4vw, 58px);
+      letter-spacing:-.03em;
+      white-space:nowrap;
+      opacity:.92;
+    }
+    @keyframes scroll{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .marquee-track{animation:none}
+    }
+
+    /* Sections */
+    section{scroll-margin-top:86px}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .h2{
+      margin:0;
+      font-size:clamp(22px, 2.6vw, 32px);
+      letter-spacing:-.02em;
+      font-weight:600;
+    }
+
+    /* Cards */
+    .card{
+      border:1px solid var(--soft2);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.02);
+      padding:clamp(16px, 2.2vw, 22px);
+    }
+
+    /* Timeline */
+    .timeline{display:grid; gap:14px}
+    .item{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap:18px;
+      padding:14px 0;
+      border-bottom:1px solid var(--soft2);
+    }
+    .item:last-child{border-bottom:none}
+    .when{
+      font-family:var(--mono);
+      color:var(--muted);
+      letter-spacing:.06em;
+      font-size:12px;
+    }
+    .role{font-weight:600; margin:0 0 6px; letter-spacing:-.01em}
+    .where{margin:0 0 8px; color:var(--muted)}
+    .bullets{margin:0; padding-left:18px; color:var(--muted); line-height:1.55}
+    @media (max-width: 720px){
+      .item{grid-template-columns: 1fr; gap:8px}
+    }
+
+    /* Project cards */
+    .projects{
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .proj{
+      grid-column: span 6;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      padding:0;
+      overflow:hidden;
+      background:rgba(255,255,255,.02);
+    }
+    .proj-media{
+      height:260px;
+      border-bottom:1px solid var(--soft2);
+      background:#111;
+    }
+    .proj-media img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      filter:contrast(1.05) saturate(.95);
+    }
+    .proj-body{padding:clamp(16px, 2.2vw, 22px)}
+    .proj-top{display:flex; justify-content:space-between; gap:12px; align-items:flex-start}
+    .proj-title{margin:0; font-size:20px; letter-spacing:-.02em; font-weight:600}
+    .proj-type{font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.06em}
+    .proj-desc{margin:10px 0 0; color:var(--muted); line-height:1.6}
+    details{
+      margin-top:12px;
+      border-top:1px solid var(--soft2);
+      padding-top:12px;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-family:var(--mono);
+      letter-spacing:.06em;
+      font-size:12px;
+      color:var(--fg);
+      opacity:.9;
+    }
+    summary::-webkit-details-marker{display:none}
+    .details-content{
+      margin-top:10px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+    .details-content ul{margin:8px 0 0; padding-left:18px}
+    @media (max-width: 900px){
+      .proj{grid-column: span 12}
+    }
+
+    /* Skills columns */
+    .cols{grid-template-columns: repeat(12, 1fr)}
+    .col{grid-column: span 4}
+    @media (max-width: 900px){ .col{grid-column: span 12} }
+    .list{margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.7}
+
+    /* Footer */
+    footer{
+      margin-top:50px;
+      padding:36px 0 54px;
+      border-top:1px solid var(--soft2);
+      background:rgba(255,255,255,.01);
+    }
+    .footer-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .cta{
+      font-size:clamp(26px, 3.6vw, 48px);
+      letter-spacing:-.03em;
+      line-height:1.05;
+      margin:0;
+      font-weight:600;
+    }
+    .footer-links{display:flex; gap:10px; flex-wrap:wrap}
+    .tiny{font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.06em}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand" aria-label="Marca">
+        <strong>Carlota López Carracedo</strong>
+        <span>Portfolio · Branding · Diseño · Audiovisual</span>
+      </div>
+
+      <div class="top-actions">
+        <a class="btn" href="mailto:carlotalopecarracedo@gmail.com" aria-label="Enviar email">
+          Email <span aria-hidden="true">↗</span>
+        </a>
+        <button class="btn" id="openMenu" aria-haspopup="dialog" aria-controls="menuOverlay">
+          Menu <span aria-hidden="true">≡</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overlay Menu -->
+  <div class="overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="overlay-inner">
+      <div class="overlay-head">
+        <div class="brand">
+          <strong>Carlota López Carracedo</strong>
+          <span>carlotalopecarracedo@gmail.com</span>
+        </div>
+        <button class="btn" id="closeMenu">Close <span aria-hidden="true">×</span></button>
+      </div>
+
+      <ul class="menu-list">
+        <li class="menu-item">
+          <span class="menu-num">01</span>
+          <a class="menu-link" href="#inicio" data-close>Home</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">02</span>
+          <a class="menu-link" href="#sobre-mi" data-close>Perfil</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">03</span>
+          <a class="menu-link" href="#experiencia" data-close>Experiencia</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">04</span>
+          <a class="menu-link" href="#proyectos" data-close>Proyectos</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">05</span>
+          <a class="menu-link" href="#capacidades" data-close>Capacidades</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">06</span>
+          <a class="menu-link" href="#contacto" data-close>Contacto</a>
+        </li>
+      </ul>
+
+      <div class="overlay-foot">
+        <span class="tiny">ES · GL · EN</span>
+        <div class="footer-links">
+          <a class="pill" href="mailto:carlotalopecarracedo@gmail.com">EMAIL ↗</a>
+          <span class="pill">Disponible · Freelance / Colab</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap" id="inicio">
+    <div class="grid hero">
+      <div>
+        <div class="kicker">PORTFOLIO PROFESIONAL</div>
+        <h1 class="title">Carlota<br/>López Carracedo</h1>
+        <p class="subtitle">
+          Creadora de contenido y diseñadora gráfica especializada en <strong>branding</strong>, diseño digital y
+          producción audiovisual. Desarrollo identidades con intención (y con criterio, no por capricho).
+        </p>
+
+        <div class="hero-meta" aria-label="Etiquetas">
+          <span class="pill">Branding</span>
+          <span class="pill">Diseño digital</span>
+          <span class="pill">Audiovisual</span>
+          <span class="pill">Web · WordPress/Elementor</span>
+        </div>
+
+        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn" href="#proyectos">Ver proyectos</a>
+          <a class="btn" href="#contacto">Contactar</a>
+        </div>
+      </div>
+
+      <div class="portrait" aria-label="Retrato">
+        <!-- Cambia esta imagen por tu foto: assets/portrait.jpg -->
+        <img src="assets/portrait.jpg" alt="Retrato de Carlota López Carracedo" />
+        <div class="slice" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Marquee de habilidades (estilo Loire) -->
+    <div class="marquee" aria-label="Marquee">
+      <div class="marquee-track" aria-hidden="true">
+        <span>Branding</span><span>Identidad Visual</span><span>Diseño Digital</span><span>Video Editing</span><span>Motion</span><span>WordPress</span><span>Figma</span><span>Procreate</span>
+        <span>Branding</span><span>Identidad Visual</span><span>Diseño Digital</span><span>Video Editing</span><span>Motion</span><span>WordPress</span><span>Figma</span><span>Procreate</span>
+      </div>
+    </div>
+
+    <section id="sobre-mi">
+      <div class="section-head">
+        <h2 class="h2">Perfil profesional</h2>
+        <span class="kicker">Sobre mí</span>
+      </div>
+      <div class="card">
+        <p class="muted" style="margin:0; line-height:1.75; max-width:85ch">
+          Creadora de contenido y diseñadora gráfica especializada en branding, diseño digital y producción audiovisual.
+          Experiencia en desarrollo de identidades corporativas, diseño de materiales gráficos y gestión de contenido multiplataforma.
+        </p>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="section-head">
+        <h2 class="h2">Formación</h2>
+        <span class="kicker">Educación</span>
+      </div>
+      <div class="timeline">
+        <div class="item">
+          <div class="when">2020 — 2024</div>
+          <div>
+            <p class="role">Grado en Publicidad y Relaciones Públicas</p>
+            <p class="where">Universidad de Vigo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section id="experiencia">
+      <div class="section-head">
+        <h2 class="h2">Experiencia profesional</h2>
+        <span class="kicker">Timeline</span>
+      </div>
+
+      <div class="timeline">
+        <div class="item">
+          <div class="when">Sep — Dic 2021</div>
+          <div>
+            <p class="role">Creadora de Contenido · Farmacia Carmen Goicoa</p>
+            <ul class="bullets">
+              <li>Diseño de plantillas y posts para redes sociales</li>
+              <li>Gestión de contenido digital</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="when">Ene 2023 — Feb 2024</div>
+          <div>
+            <p class="role">Diseñadora Gráfica · Freelancer</p>
+            <ul class="bullets">
+              <li>Creación de diseños y logotipos personalizados</li>
+              <li>Desarrollo de identidades visuales</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="when">Mar — Abr 2024</div>
+          <div>
+            <p class="role">Diseñadora Gráfica · AREA 10 Marketing</p>
+            <ul class="bullets">
+              <li>Creación de diseños y redacción de copys</li>
+              <li>Grabación y edición de Reels/TikToks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="when">Ago 2024 — Actualidad</div>
+          <div>
+            <p class="role">Creadora de Contenido · Orestes Comunica</p>
+            <ul class="bullets">
+              <li>Elaboración de diseños y redacción de copys</li>
+              <li>Grabación y edición de vídeos</li>
+              <li>Creación de páginas web y tours virtuales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section id="proyectos">
+      <div class="section-head">
+        <h2 class="h2">Proyectos destacados</h2>
+        <span class="kicker">Work</span>
+      </div>
+
+      <div class="grid projects">
+        <!-- 1 -->
+        <article class="card proj">
+          <div class="proj-media">
+            <img src="assets/proj-quimeras.jpg" alt="Proyecto Quimeras del Norte" />
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div>
+                <h3 class="proj-title">Quimeras del Norte</h3>
+                <div class="proj-type">Branding · Identidad visual</div>
+              </div>
+              <span class="pill">Proyecto 01</span>
+            </div>
+            <p class="proj-desc">
+              Identidad corporativa para una plataforma web de narrativas gallegas. Traslado de historias y escritos al entorno digital con enfoque memorial y cultural.
+            </p>
+            <details>
+              <summary>Ver más <span aria-hidden="true">+</span></summary>
+              <div class="details-content">
+                <strong>Concepto</strong>
+                <ul>
+                  <li><strong>Misión:</strong> Difundir narraciones e historias a través de una web propia.</li>
+                  <li><strong>Visión:</strong> Ganar presencia y visibilidad entre lectores y consumidores online.</li>
+                </ul>
+                <strong style="display:block; margin-top:10px">Elementos de identidad</strong>
+                <ul>
+                  <li><strong>Verde:</strong> naturaleza y vínculo con el entorno.</li>
+                  <li><strong>Roble (carballo):</strong> símbolo territorial gallego.</li>
+                  <li><strong>Quimera:</strong> mito como metáfora de lo imposible.</li>
+                </ul>
+                <strong style="display:block; margin-top:10px">Entregables</strong>
+                <ul>
+                  <li>Logotipo con tipografía serif elegante</li>
+                  <li>Símbolo de árbol estilizado en verde</li>
+                  <li>Sistema completo de identidad visual</li>
+                  <li>Paleta corporativa</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="card proj">
+          <div class="proj-media">
+            <img src="assets/proj-nobreh.jpg" alt="Proyecto NOBREH" />
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div>
+                <h3 class="proj-title">NOBREH</h3>
+                <div class="proj-type">Identidad corporativa · Inversiones</div>
+              </div>
+              <span class="pill">Proyecto 02</span>
+            </div>
+            <p class="proj-desc">
+              Desarrollo de imagen para empresa familiar de gestión de inversiones (5 integrantes). Diseño elegante, simple y con simbolismo de fortuna.
+            </p>
+            <details>
+              <summary>Ver más <span aria-hidden="true">+</span></summary>
+              <div class="details-content">
+                <strong>Requisitos</strong>
+                <ul>
+                  <li>Elegancia</li>
+                  <li>Simplicidad</li>
+                </ul>
+                <strong style="display:block; margin-top:10px">Concepto creativo</strong>
+                <ul>
+                  <li><strong>Amarillo/dorado:</strong> riqueza</li>
+                  <li><strong>Trébol:</strong> fortuna</li>
+                  <li><strong>5 hojas:</strong> 5 miembros de la familia</li>
+                </ul>
+                <strong style="display:block; margin-top:10px">Entregables</strong>
+                <ul>
+                  <li>Marca principal y secundaria</li>
+                  <li>Símbolo explicado conceptualmente</li>
+                  <li>Manual de identidad visual</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="card proj">
+          <div class="proj-media">
+            <img src="assets/proj-vitamina3.jpg" alt="Proyecto Vitamina 3" />
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div>
+                <h3 class="proj-title">Vitamina 3</h3>
+                <div class="proj-type">Branding · Proyecto universitario</div>
+              </div>
+              <span class="pill">Proyecto 03</span>
+            </div>
+            <p class="proj-desc">
+              Proyecto en dupla creativa: identidad basada en la metáfora de aportar energía a las marcas con un sistema gráfico de porcentajes.
+            </p>
+            <details>
+              <summary>Ver más <span aria-hidden="true">+</span></summary>
+              <div class="details-content">
+                <strong>Propuesta de valor</strong>
+                <ul>
+                  <li><strong>Misión:</strong> aportar energía a marcas de forma atípica y original.</li>
+                  <li><strong>Visión:</strong> acompañar a clientes hacia la cúspide publicitaria.</li>
+                </ul>
+                <strong style="display:block; margin-top:10px">Identidad</strong>
+                <ul>
+                  <li>Símbolo circular (sol/energía)</li>
+                  <li>Verde lima / amarillo verdoso</li>
+                  <li>Tipografía bold y moderna</li>
+                  <li>Sistema gráfico por fracciones (33,3%)</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section id="capacidades">
+      <div class="section-head">
+        <h2 class="h2">Capacidades profesionales</h2>
+        <span class="kicker">Skills</span>
+      </div>
+
+      <div class="grid cols">
+        <div class="card col">
+          <div class="kicker">Diseño gráfico</div>
+          <ul class="list">
+            <li>Identidad corporativa y branding</li>
+            <li>Diseño de logotipos</li>
+            <li>Manuales de marca</li>
+            <li>Diseño editorial</li>
+          </ul>
+        </div>
+
+        <div class="card col">
+          <div class="kicker">Contenido digital</div>
+          <ul class="list">
+            <li>Plantillas para RRSS</li>
+            <li>Posts y contenido visual</li>
+            <li>Redacción de copys publicitarios</li>
+          </ul>
+        </div>
+
+        <div class="card col">
+          <div class="kicker">Audiovisual & Web</div>
+          <ul class="list">
+            <li>Grabación de contenido</li>
+            <li>Edición (Reels, TikToks)</li>
+            <li>WordPress & Elementor</li>
+            <li>Tours virtuales</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="section-head">
+        <h2 class="h2">Competencias técnicas</h2>
+        <span class="kicker">Software</span>
+      </div>
+
+      <div class="card">
+        <p class="muted" style="margin:0 0 10px; line-height:1.7">
+          Adobe Illustrator · Photoshop · InDesign · Canva · Figma · DaVinci Resolve · CapCut · Procreate · Elementor · WordPress
+        </p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <span class="pill">Illustrator</span><span class="pill">Photoshop</span><span class="pill">InDesign</span>
+          <span class="pill">Figma</span><span class="pill">DaVinci</span><span class="pill">CapCut</span>
+          <span class="pill">Procreate</span><span class="pill">WordPress</span><span class="pill">Elementor</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section id="metodologia">
+      <div class="section-head">
+        <h2 class="h2">Metodología y filosofía</h2>
+        <span class="kicker">Cómo trabajo</span>
+      </div>
+
+      <div class="grid cols">
+        <div class="card col">
+          <div class="kicker">Investigación</div>
+          <ul class="list">
+            <li>Análisis del cliente y sector</li>
+            <li>Definición de misión y visión</li>
+            <li>Identificación de valores de marca</li>
+          </ul>
+        </div>
+        <div class="card col">
+          <div class="kicker">Creativa</div>
+          <ul class="list">
+            <li>Desarrollo conceptual</li>
+            <li>Justificación estratégica</li>
+            <li>Paleta cromática con significado</li>
+            <li>Creación de simbolismos</li>
+          </ul>
+        </div>
+        <div class="card col">
+          <div class="kicker">Producción</div>
+          <ul class="list">
+            <li>Diseño de aplicaciones</li>
+            <li>Desarrollo de entregables</li>
+            <li>Presentación profesional</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="card">
+        <div class="kicker">Filosofía de diseño</div>
+        <p class="muted" style="margin:10px 0 0; line-height:1.75; max-width:90ch">
+          Enfoque estratégico donde cada elemento visual tiene un propósito: simbolismo cultural, color con intención,
+          simplicidad elegante y narrativa visual coherente.
+        </p>
+      </div>
+
+      <div class="grid cols" style="margin-top:16px">
+        <div class="card col">
+          <div class="kicker">Sectores</div>
+          <ul class="list">
+            <li>Salud y farmacia</li>
+            <li>Marketing y publicidad</li>
+            <li>Gestión financiera e inversiones</li>
+            <li>Cultura y narrativa</li>
+            <li>Servicios creativos</li>
+          </ul>
+        </div>
+        <div class="card col">
+          <div class="kicker">Habilidades</div>
+          <ul class="list">
+            <li>Gestión de proyectos creativos</li>
+            <li>Comunicación con clientes</li>
+            <li>Trabajo en equipo</li>
+            <li>Adaptabilidad multiplataforma</li>
+            <li>Pensamiento estratégico</li>
+          </ul>
+        </div>
+        <div class="card col">
+          <div class="kicker">Idiomas</div>
+          <ul class="list">
+            <li>Español (nativo)</li>
+            <li>Gallego (nativo)</li>
+            <li>Inglés (nivel profesional)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contacto">
+      <div class="wrap">
+        <div class="footer-top">
+          <h2 class="cta">Hablemos de tu<br/>próximo proyecto.</h2>
+          <div class="footer-links">
+            <a class="btn" href="mailto:carlotalopecarracedo@gmail.com">Email me ↗</a>
+            <a class="btn" href="#inicio">Back to top ↑</a>
+          </div>
+        </div>
+
+        <div class="rule"></div>
+
+        <div style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center">
+          <span class="tiny">© <span id="year"></span> Carlota López Carracedo</span>
+          <span class="tiny">Contacto: carlotalopecarracedo@gmail.com</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const overlay = document.getElementById('menuOverlay');
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+
+    const openMenu = () => {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    };
+    const closeMenu = () => {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      openBtn.focus();
+    };
+
+    openBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeMenu();
+    });
+
+    // Cierra al clicar enlaces del menú y hace scroll suave
+    document.querySelectorAll('[data-close]').forEach(a => {
+      a.addEventListener('click', () => closeMenu());
+    });
+
+    // ESC para cerrar
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+    });
+
+    // Scroll suave (sin librerías)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', id);
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
