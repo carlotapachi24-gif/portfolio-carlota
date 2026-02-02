@@ -1,218 +1,181 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carlota López Carracedo | Portfolio</title>
-  <meta name="description" content="Diseñadora gráfica y creadora de contenido especializada en branding, identidad visual y producción audiovisual." />
-
-  <!-- Fonts: Playfair Display + Inter (como Loire) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Tailwind + Animations -->
+  <title>Carlota López Carracedo | Portfolio Profesional</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
-
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: {
-            serif: ['"Playfair Display"', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          },
           colors: {
-            cream: '#FAF7F2',
-            charcoal: '#1F1F1F',
-            sage: '#8A9A8A',
-            gold: '#D4AF37',
+            primary: '#10b981',    // Verde elegante inspirado en Loire + Galicia
+            secondary: '#1e293b',
+            accent: '#f59e0b',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
           }
         }
       }
     }
   </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    .reveal { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-    .section-title { font-size: clamp(3rem, 8vw, 6rem); }
+    .smooth-scroll { scroll-behavior: smooth; }
+    .project-card:hover img { transform: scale(1.08); }
+    .project-overlay { opacity: 0; }
+    .project-card:hover .project-overlay { opacity: 1; }
   </style>
 </head>
+<body class="bg-gray-950 text-gray-100 font-sans smooth-scroll">
 
-<body class="bg-cream text-charcoal leading-relaxed tracking-wide overflow-x-hidden">
-
-  <!-- HERO -->
-  <section class="min-h-screen flex items-center justify-center relative px-8">
-    <div class="max-w-7xl mx-auto text-center">
-      <h1 class="section-title font-serif font-bold leading-none mb-8 reveal">
-        Carlota López<br>Carracedo
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-secondary to-gray-950 opacity-90"></div>
+    <div class="text-center z-10 px-6 max-w-5xl">
+      <h1 class="text-6xl md:text-8xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent animate-pulse">
+        Carlota López Carracedo
       </h1>
-      <p class="text-2xl md:text-3xl font-light tracking-wider text-charcoal/70 reveal" style="animation-delay: 0.3s">
-        Diseñadora gráfica & Creadora de contenido
+      <p class="text-2xl md:text-4xl mt-4 font-light text-gray-300">
+        Diseñadora Gráfica & Creadora de Contenido
       </p>
-      <p class="mt-12 text-lg md:text-xl max-w-3xl mx-auto font-light reveal" style="animation-delay: 0.6s">
-        Especializada en branding estratégico, identidades visuales con alma y narrativas digitales que conectan emocionalmente.
+      <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+        Branding, diseño digital y producción audiovisual con alma gallega
       </p>
-      <div class="mt-16 reveal" style="animation-delay: 0.9s">
-        <a href="#proyectos" class="inline-block border-2 border-charcoal px-12 py-5 text-lg tracking-widest hover:bg-charcoal hover:text-cream transition-all duration-500">
-          VER TRABAJOS
+      <div class="mt-10 flex flex-wrap justify-center gap-6">
+        <a href="#perfil" class="px-8 py-4 bg-primary hover:bg-emerald-600 rounded-full font-medium text-lg transition transform hover:scale-105">
+          Conóceme
+        </a>
+        <a href="#proyectos" class="px-8 py-4 border-2 border-primary hover:bg-primary/20 rounded-full font-medium text-lg transition">
+          Ver Proyectos
+        </a>
+        <a href="mailto:carlotalopecarracedo@gmail.com" class="px-8 py-4 bg-gray-700 hover:bg-gray-600 rounded-full font-medium text-lg transition">
+          Contacto
         </a>
       </div>
     </div>
+  </section>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-charcoal/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-      </svg>
+  <!-- Perfil Profesional -->
+  <section id="perfil" class="py-20 px-6 md:px-12 bg-secondary">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-12 text-primary">Perfil Profesional</h2>
+      <p class="text-xl text-center text-gray-300 max-w-4xl mx-auto leading-relaxed">
+        Creadora de contenido y diseñadora gráfica especializada en branding, diseño digital y producción audiovisual. Experiencia en desarrollo de identidades corporativas, diseño de materiales gráficos y gestión de contenido multiplataforma.
+      </p>
     </div>
   </section>
 
-  <!-- PROYECTOS DESTACADOS -->
-  <section id="proyectos" class="py-32 px-8 bg-cream">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-5xl md:text-7xl font-serif font-bold mb-24 text-center reveal">Proyectos seleccionados</h2>
+  <!-- Formación + Competencias -->
+  <section class="py-20 px-6 md:px-12">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-3xl font-serif font-bold mb-6 text-primary">Formación</h3>
+        <p class="text-xl">Grado en Publicidad y Relaciones Públicas</p>
+        <p class="text-gray-400">Universidad de Vigo | 2020-2024</p>
+      </div>
+      <div>
+        <h3 class="text-3xl font-serif font-bold mb-6 text-primary">Competencias Técnicas</h3>
+        <ul class="grid grid-cols-2 gap-4 text-gray-300">
+          <li>Adobe Illustrator</li><li>Adobe Photoshop</li>
+          <li>Adobe InDesign</li><li>Canva</li>
+          <li>Figma</li><li>DaVinci Resolve</li>
+          <li>CapCut</li><li>Procreate</li>
+          <li>Elementor</li><li>WordPress</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-      <!-- Proyecto 1 -->
-      <div class="grid md:grid-cols-2 gap-20 mb-40 items-center reveal">
-        <div class="order-2 md:order-1">
-          <h3 class="text-4xl md:text-6xl font-serif font-bold mb-6">Quimeras del Norte</h3>
-          <p class="text-xl text-charcoal/70 mb-6">Branding e Identidad Visual</p>
-          <p class="text-lg leading-relaxed max-w-lg">
-            Identidad corporativa para una plataforma digital de narrativas gallegas. 
-            Un roble estilizado como símbolo central, verde que evoca la naturaleza gallega y una quimera mitológica que representa lo imposible de sus historias.
-          </p>
-          <ul class="mt-8 space-y-2 text-charcoal/80">
-            <li>• Logotipo serif elegante</li>
-            <li>• Símbolo de carballo estilizado</li>
-            <li>• Sistema de identidad completo</li>
-            <li>• Manual de marca</li>
-          </ul>
+  <!-- Experiencia Profesional -->
+  <section id="experiencia" class="py-20 px-6 md:px-12 bg-secondary">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-12 text-primary">Experiencia Profesional</h2>
+      <div class="space-y-10">
+        <div>
+          <h4 class="text-2xl font-bold">Creadora de Contenido | Orestes Comunica</h4>
+          <p class="text-gray-400">Agosto 2024 - Actualidad</p>
+          <p>Diseños, copys, edición de vídeos, páginas web y tours virtuales.</p>
         </div>
-        <div class="order-1 md:order-2 bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center text-charcoal/40 text-xl">
-          [Imagen Quimeras del Norte]
+        <div>
+          <h4 class="text-2xl font-bold">Diseñadora Gráfica | AREA 10 Marketing</h4>
+          <p class="text-gray-400">Marzo 2024 - Abril 2024</p>
+          <p>Diseños, redacción de copys y edición de Reels/TikToks.</p>
+        </div>
+        <div>
+          <h4 class="text-2xl font-bold">Diseñadora Gráfica Freelancer</h4>
+          <p class="text-gray-400">Enero 2023 - Febrero 2024</p>
+          <p>Logotipos e identidades visuales personalizadas.</p>
+        </div>
+        <div>
+          <h4 class="text-2xl font-bold">Creadora de Contenido | Farmacia Carmen Goicoa</h4>
+          <p class="text-gray-400">Septiembre - Diciembre 2021</p>
+          <p>Diseño de plantillas y gestión de redes sociales.</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Proyecto 2 -->
-      <div class="grid md:grid-cols-2 gap-20 mb-40 items-center reveal">
-        <div class="md:col-start-1">
-          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center text-charcoal/40 text-xl">
-            [Imagen NOBREH]
+  <!-- Proyectos Destacados -->
+  <section id="proyectos" class="py-20 px-6 md:px-12">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-16 text-primary">Proyectos Destacados</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        
+        <!-- Proyecto 1 -->
+        <div class="project-card relative overflow-hidden rounded-2xl bg-gray-800 shadow-2xl transition transform hover:scale-105">
+          <img src="https://via.placeholder.com/600x800/10b981/ffffff?text=Quimeras+del+Norte" alt="Quimeras del Norte" class="w-full h-96 object-cover transition duration-500">
+          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+            <div>
+              <h4 class="text-2xl font-serif font-bold">Quimeras del Norte</h4>
+              <p class="text-sm text-gray-300 mt-2">Branding e Identidad Visual</p>
+              <p class="text-sm mt-4">Plataforma de narrativas gallegas con roble y quimera como símbolos centrales.</p>
+            </div>
           </div>
         </div>
-        <div class="md:col-start-2">
-          <h3 class="text-4xl md:text-6xl font-serif font-bold mb-6">NOBREH</h3>
-          <p class="text-xl text-charcoal/70 mb-6">Identidad Corporativa — Gestión de Inversiones</p>
-          <p class="text-lg leading-relaxed max-w-lg">
-            Marca familiar de inversión con un trébol de cinco hojas que representa a cada miembro. 
-            Dorado como símbolo de riqueza y elegancia minimalista absoluta.
-          </p>
-          <ul class="mt-8 space-y-2 text-charcoal/80">
-            <li>• Trébol de 5 hojas conceptual</li>
-            <li>• Tipografía serif premium</li>
-            <li>• Paleta dorada sofisticada</li>
-            <li>• Manual de identidad minimalista</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- Proyecto 3 -->
-      <div class="grid md:grid-cols-2 gap-20 items-center reveal">
-        <div class="order-2 md:order-1">
-          <h3 class="text-4xl md:text-6xl font-serif font-bold mb-6">Vitamina 3</h3>
-          <p class="text-xl text-charcoal/70 mb-6">Branding — Proyecto Universitario</p>
-          <p class="text-lg leading-relaxed max-w-lg">
-            Agencia creativa que aporta "33,3% más energía" a las marcas. 
-            Metáfora vitamínica aplicada al diseño: verde lima, sol como símbolo y porcentajes como sistema gráfico.
-          </p>
+        <!-- Proyecto 2 -->
+        <div class="project-card relative overflow-hidden rounded-2xl bg-gray-800 shadow-2xl transition transform hover:scale-105">
+          <img src="https://via.placeholder.com/600x800/f59e0b/ffffff?text=Nobreh" alt="Nobreh" class="w-full h-96 object-cover transition duration-500">
+          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+            <div>
+              <h4 class="text-2xl font-serif font-bold">Nobreh</h4>
+              <p class="text-sm text-gray-300 mt-2">Identidad Corporativa</p>
+              <p class="text-sm mt-4">Trébol de 5 hojas en dorado para gestión de inversiones familiar.</p>
+            </div>
+          </div>
         </div>
-        <div class="order-1 md:order-2 bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center text-charcoal/40 text-xl">
-          [Imagen Vitamina 3]
+
+        <!-- Proyecto 3 -->
+        <div class="project-card relative overflow-hidden rounded-2xl bg-gray-800 shadow-2xl transition transform hover:scale-105">
+          <img src="https://via.placeholder.com/600x800/10b981/ffffff?text=Vitamina+3" alt="Vitamina 3" class="w-full h-96 object-cover transition duration-500">
+          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+            <div>
+              <h4 class="text-2xl font-serif font-bold">Vitamina 3</h4>
+              <p class="text-sm text-gray-300 mt-2">Branding Universitario</p>
+              <p class="text-sm mt-4">Energía y originalidad con símbolo solar y verde lima.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SOBRE MÍ / FILOSOFÍA -->
-  <section class="py-32 px-8 bg-charcoal text-cream">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-5xl md:text-7xl font-serif font-bold mb-16 reveal">Filosofía de diseño</h2>
-      <p class="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto reveal" style="animation-delay: 0.3s">
-        Cada elemento tiene un propósito. Cada color cuenta una historia. 
-        Cada proyecto es una narrativa visual coherente donde la estrategia y la emoción se funden.
-      </p>
-      <div class="grid md:grid-cols-3 gap-12 mt-20">
-        <div class="reveal" style="animation-delay: 0.6s">
-          <h4 class="text-2xl font-serif mb-4">Simbolismo cultural</h4>
-          <p class="text-cream/70">Roble gallego · Quimeras · Raíces</p>
-        </div>
-        <div class="reveal" style="animation-delay: 0.8s">
-          <h4 class="text-2xl font-serif mb-4">Color con significado</h4>
-          <p class="text-cream/70">Cada tono responde a valores de marca</p>
-        </div>
-        <div class="reveal" style="animation-delay: 1s">
-          <h4 class="text-2xl font-serif mb-4">Simplicidad elegante</h4>
-          <p class="text-cream/70">Menos es más cuando comunica todo</p>
-        </div>
-      </div>
+  <!-- Contacto -->
+  <section id="contacto" class="py-20 px-6 md:px-12 bg-secondary text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8 text-primary">Contacto</h2>
+      <p class="text-xl mb-6">¿Hablamos de tu próximo proyecto?</p>
+      <a href="mailto:carlotalopecarracedo@gmail.com" class="text-2xl font-medium text-primary hover:underline">
+        carlotalopecarracedo@gmail.com
+      </a>
+      <p class="mt-12 text-gray-500">Creado con amor por Carlota • 2026</p>
     </div>
   </section>
 
-  <!-- EXPERIENCIA BREVE -->
-  <section class="py-32 px-8">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-5xl md:text-7xl font-serif font-bold mb-20 text-center reveal">Experiencia</h2>
-      <div class="space-y-16 max-w-3xl mx-auto">
-        <div class="reveal">
-          <h3 class="text-2xl font-serif">Orestes Comunica</h3>
-          <p class="text-charcoal/60">Creadora de contenido · Agosto 2024 — Actualidad</p>
-        </div>
-        <div class="reveal">
-          <h3 class="text-2xl font-serif">AREA 10 Marketing</h3>
-          <p class="text-charcoal/60">Diseñadora gráfica · Marzo — Abril 2024</p>
-        </div>
-        <div class="reveal">
-          <h3 class="text-2xl font-serif">Freelance</h3>
-          <p class="text-charcoal/60">Diseñadora gráfica · 2023 — 2024</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTO FINAL -->
-  <section class="py-32 px-8 bg-charcoal text-cream">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-6xl md:text-8xl font-serif font-bold mb-12 reveal">Hablemos</h2>
-      <p class="text-2xl mb-16 reveal" style="animation-delay: 0.3s">
-        ¿Tienes un proyecto que necesita alma visual?
-      </p>
-      <div class="reveal" style="animation-delay: 0.6s">
-        <a href="mailto:carlotalopecarracedo@gmail.com" class="text-4xl md:text-5xl underline decoration-2 underline-offset-8 hover:decoration-gold transition-all">
-          carlotalopecarracedo@gmail.com
-        </a>
-      </div>
-      <p class="mt-20 text-cream/60 reveal" style="animation-delay: 0.9s">
-        © 2026 Carlota López Carracedo
-      </p>
-    </div>
-  </section>
-
-  <!-- Animaciones al hacer scroll -->
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    reveals.forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
